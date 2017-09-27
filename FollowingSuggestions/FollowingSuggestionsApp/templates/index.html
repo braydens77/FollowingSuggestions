@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<!--
+<h1>Local Library Home</h1>
+
+  <p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a tutorial example on the Mozilla Developer Network.</p>
+
+<h2>Dynamic content</h2>
+
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+  </ul>
+-->
+<br>
+<h2 style="color:white">Following Suggestions</h2>
+<br>
+<div id="search">
+	<p style="color:white">Please enter an Instagram username to get suggestions for that account to follow</p>
+	<input type="text" placeholder="username" id="username"/>
+	<input type="submit" value="Get suggestions" id="submit" class="button"/>
+	
+	<div class="progress progress-striped active loadingBar" id="progress">
+		<div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+	</div>
+</div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+html{
+	width:100%; height:100%;
+}
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+#body{
+	text-align:center;
+	width:90%;
+	margin:auto;
+}
+
+body{
+	background: #eeeee; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(right top, yellow 11%, orange 33%, purple 72%); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(top right, yellow 11%, orange 33%, purple 72%); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(top right, yellow 11%, orange 33%, purple 72%); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to top right, yellow 11%, orange 33%, purple 72%);  background-size: cover;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.loadingBar{
+	height:10px; width:50%; 
+	text-align:center; margin:auto; 
+	margin-top:15px; margin-bottom: 15px;
+	visibility:hidden;
+}
+
+.card{
+	border-radius:8px;
+	background-color:white;
+	box-shadow: 0px 1px 4px gray;
+	width:50%;
+	padding:12px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 15px; 
+}
+
+.button{
+	background-color: blue;
+    border:0;
+	padding:2px;
+	color:white;
+}
