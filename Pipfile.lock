@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8eda8b1cfa47995765905329ef38eb8ab59964ff1f18cad2e520a9ff1ef426d7"
+            "sha256": "1cd86f28e56a99f2c1cf2fa744200d80279b59b08d0477c94038b2a0c4870c1d"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -17,7 +17,9 @@
             "sys_platform": "win32"
         },
         "pipfile-spec": 6,
-        "requires": {},
+        "requires": {
+            "python_version": "2.7"
+        },
         "sources": [
             {
                 "name": "pypi",

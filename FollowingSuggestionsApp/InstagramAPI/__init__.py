@@ -1,1 +1,1 @@
-from InstagramAPI import InstagramAPI
+from .InstagramAPI import InstagramAPI

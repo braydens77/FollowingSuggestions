@@ -4,12 +4,16 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import JsonResponse
 
+# Fix for Python 3.6
+import os
+__path__=[os.path.dirname(os.path.abspath(__file__))]
+
 # Create your views here.
 def index(request):
 	return render(request, 'index.html', {})
 	
 
-from InstagramAPI import InstagramAPI
+from .InstagramAPI import InstagramAPI
 import sys
 import operator
 from django.views.decorators.csrf import csrf_exempt
@@ -27,19 +31,19 @@ def getFollowingSuggestion(request):
 
 		API = InstagramAPI(credentials.username, credentials.password)
 		API.login()
-		print "logged in"
+		print("logged in")
 
 		API.searchUsername(username)
 		user = API.LastJson.get("user")
-		print user 
-		print "\n"
+		print(user)
+		print("\n")
 		if(user is None):
-			print "username does not exist"
+			print("username does not exist")
 			return JsonResponse({"error":True})
 			
 		numFollowing = user.get("following_count")
 		if(numFollowing==0):
-			print "user has 0 followings"
+			print("user has 0 followings")
 			return JsonResponse({"error":True})
 			
 		userId = user.get("pk")
@@ -62,7 +66,7 @@ def getFollowingSuggestion(request):
 				user = followings[i]
 				uid = user.get("pk")
 				username = user.get("username")
-				print "getting followings for userid " + str(uid)
+				print("getting followings for userid " + str(uid))
 				#first iteration hack
 				if next_max_id == True: next_max_id=''
 				_ = API.getUserFollowings(uid, maxid=next_max_id)
@@ -81,7 +85,7 @@ def getFollowingSuggestion(request):
 							visitedUsers[username] = 1
 						numCompleted+=1
 				next_max_id = API.LastJson.get('next_max_id','')
-		print str(numCompleted) + " followings analyzed"
+		print(str(numCompleted) + " followings analyzed")
 		sortedSuggestions = sorted(visitedUsers.items(), key=operator.itemgetter(1), reverse=True)
 
 		uniqueSuggestions=[]
@@ -94,7 +98,7 @@ def getFollowingSuggestion(request):
 
 		top3Suggestions=[]
 		for j in range(0, min(3, len(uniqueSuggestions))):
-			print uniqueSuggestions[j]
+			print(uniqueSuggestions[j])
 			top3Suggestions.append(uniqueSuggestions[j])
 			
 		return JsonResponse({"numAnalyzed":numCompleted, 

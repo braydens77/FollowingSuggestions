@@ -9,3 +9,6 @@ name = "pypi"
 dj-database-url = "*"
 django = "*"
 gunicorn = "*"
+
+[requires]
+python_version = "2.7"
