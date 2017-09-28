@@ -20,15 +20,15 @@ import os
 #The urllib library was split into other modules from Python 2 to Python 3
 if sys.version_info.major == 3:
     import urllib.parse
-
+'''
 try:
     from ImageUtils import getImageSize
 except:
     #Issue 159, python3 import fix
     from .ImageUtils import getImageSize
-
+'''
 from requests_toolbelt import MultipartEncoder
-from moviepy.editor import VideoFileClip
+#from moviepy.editor import VideoFileClip
 
 class InstagramAPI:
     API_URL = 'https://i.instagram.com/api/v1/'
@@ -152,7 +152,7 @@ class InstagramAPI:
             if self.configure(upload_id, photo, caption):
                 self.expose()
         return False
-
+	'''
     def uploadVideo(self, video, thumbnail, caption = None, upload_id = None):
         if upload_id is None:
             upload_id = str(int(time.time() * 1000))
@@ -303,7 +303,7 @@ class InstagramAPI:
             'caption': caption,
         })
         return self.SendRequest('media/configure/?video=1', self.generateSignature(data))
-
+	'''
     def configure(self, upload_id, photo, caption = ''):
         (w,h) = getImageSize(photo)
         data = json.dumps({
